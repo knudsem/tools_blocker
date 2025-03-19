@@ -2,7 +2,12 @@
 import { useState, useEffect } from "react"
 import { getSettings, updateSettings } from "./storage"
 
+// Import the CSS
 import "./style.css"
+
+// Import icons
+import buyMeCoffeeIcon from "./assets/buymeacoffee.png"
+import patreonIcon from "./assets/patreon.png"
 
 // Buy Me a Coffee and Patreon URLs - replace with your own
 const BUYMEACOFFEE_URL = "https://www.buymeacoffee.com/yourname"
@@ -81,7 +86,7 @@ const IndexPopup = () => {
             className="donation-banner buymeacoffee"
           >
             <img 
-              src="assets/buymeacoffee.png" 
+              src={buyMeCoffeeIcon} 
               alt="Buy Me a Coffee" 
               className="donation-icon"
             />
@@ -95,7 +100,7 @@ const IndexPopup = () => {
             className="donation-banner patreon"
           >
             <img 
-              src="assets/patreon.png" 
+              src={patreonIcon} 
               alt="Patreon" 
               className="donation-icon"
             />
