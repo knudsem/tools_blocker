@@ -51,20 +51,30 @@ storage.watch({
   key: "settings",
   callback: (newValue) => {
     if (newValue) {
-      const settings = JSON.parse(newValue)
-      toggleProAssetStyles(settings.hideProAssets)
+      try {
+        const settings = JSON.parse(newValue as string)
+        toggleProAssetStyles(settings.hideProAssets)
+      } catch (error) {
+        console.error("Error parsing settings:", error)
+      }
     }
   }
 })
 
 // Initial setup when the content script loads
 async function initialize() {
-  // Get current settings from storage
-  const settingsStr = await storage.get("settings")
-  const settings = settingsStr ? JSON.parse(settingsStr) : { hideProAssets: true }
-  
-  // Apply styles based on current setting
-  toggleProAssetStyles(settings.hideProAssets)
+  try {
+    // Get current settings from storage
+    const settingsStr = await storage.get("settings")
+    const settings = settingsStr ? JSON.parse(settingsStr as string) : { hideProAssets: true }
+    
+    // Apply styles based on current setting
+    toggleProAssetStyles(settings.hideProAssets)
+  } catch (error) {
+    console.error("Error initializing:", error)
+    // Use default setting if there's an error
+    toggleProAssetStyles(true)
+  }
 }
 
 // Initialize when the DOM is fully loaded
@@ -76,12 +86,16 @@ if (document.readyState === "loading") {
 
 // Observe DOM changes to reapply styles if needed
 const observer = new MutationObserver(async () => {
-  const settingsStr = await storage.get("settings")
-  if (settingsStr) {
-    const settings = JSON.parse(settingsStr)
-    if (settings.hideProAssets && !document.getElementById("canva-pro-assets-hider-styles")) {
-      toggleProAssetStyles(true)
+  try {
+    const settingsStr = await storage.get("settings")
+    if (settingsStr) {
+      const settings = JSON.parse(settingsStr as string)
+      if (settings.hideProAssets && !document.getElementById("canva-pro-assets-hider-styles")) {
+        toggleProAssetStyles(true)
+      }
     }
+  } catch (error) {
+    console.error("Error in observer:", error)
   }
 })
 
