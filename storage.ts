@@ -16,7 +16,7 @@ export async function getSettings() {
 }
 
 // Function to update settings
-export async function updateSettings(newSettings) {
+export async function updateSettings(newSettings:any) {
   await storage.set("settings", JSON.stringify({
     ...await getSettings(),
     ...newSettings

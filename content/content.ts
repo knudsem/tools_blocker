@@ -1,6 +1,7 @@
 // contents/canva-content.ts
 import type { PlasmoCSConfig } from "plasmo"
 import { storage } from "../storage"
+import { type StorageWatchCallback } from "@plasmohq/storage"
 
 // Configure the content script to run on Canva pages
 export const config: PlasmoCSConfig = {
