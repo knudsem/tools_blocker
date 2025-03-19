@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Background -->
+  <rect width="24" height="24" rx="4" fill="#FFDD00" />
+  
+  <!-- Coffee cup -->
+  <path d="M7 7 L7 14 C7 16 9 18 12 18 C15 18 17 16 17 14 L17 7 Z" fill="white" stroke="#0D0C22" stroke-width="1" />
+  
+  <!-- Cup handle -->
+  <path d="M17 9 C18.5 9 19.5 10 19.5 11.5 C19.5 13 18.5 14 17 14" fill="none" stroke="#0D0C22" stroke-width="1" />
+  
+  <!-- Cup top -->
+  <path d="M6 7 L18 7" stroke="#0D0C22" stroke-width="1" />
+  
+  <!-- Steam -->
+  <path d="M10 6.5 C10 5.5 11 4.5 12 5.5" fill="none" stroke="#0D0C22" stroke-width="0.7" />
+  <path d="M14 6.5 C14 5.5 15 4.5 16 5.5" fill="none" stroke="#0D0C22" stroke-width="0.7" />
+</svg>

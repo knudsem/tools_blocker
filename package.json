@@ -1,0 +1,35 @@
+{
+  "name": "canva-pro-assets-hider",
+  "displayName": "Canva Pro Assets Hider",
+  "version": "0.1.0",
+  "description": "Hide pro assets in Canva with a simple toggle",
+  "author": "Your Name",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "convert-assets": "node convert-assets.js"
+  },
+  "dependencies": {
+    "plasmo": "^0.82.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@plasmohq/storage": "^1.6.0",
+    "@types/chrome": "^0.0.237",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
+    "sharp": "^0.32.1",
+    "typescript": "^5.1.3"
+  },
+  "manifest": {
+    "host_permissions": [
+      "https://*.canva.com/*"
+    ],
+    "permissions": [
+      "storage",
+      "activeTab"
+    ]
+  }
+}
